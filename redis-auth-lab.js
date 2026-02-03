@@ -4,7 +4,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 import redis from 'redis';
-const redisClient = redis.createClient(6379, '127.0.0.1');
+const redisClient = redis.createClient({ url: `redis://:${process.env.REDIS_PASS}@127.0.0.1:6379` });
 await redisClient.connect();
 
 import express from 'express';
